@@ -1,0 +1,112 @@
+
+
+
+/* ─────────── Grid contenedor ─────────── */
+.catalog{
+  max-width:1200px;
+  margin-inline:auto;
+  display:grid;
+  gap:1.25rem;
+  grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+}
+
+/* ─────────── Tarjeta de producto ─────────── */
+.card{
+  background:var(--clr-card);
+  border:1px solid var(--clr-border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+/* Placeholder imagen */
+.card__img{
+  height:160px;
+  display:grid;
+  place-items:center;
+  font-size:.75rem;
+  color:var(--clr-muted);
+  background:#f3f4f6;
+}
+
+/* Variante “sin stock” */
+.card--out .card__img{
+  background:var(--clr-out-stock);
+  color:#fff;
+}
+
+/* Texto & detalles */
+.card__body{padding:.9rem .9rem 0;}
+
+.card__category{
+  font-size:.65rem;
+  font-weight:600;
+  color:var(--clr-muted);
+  letter-spacing:.04em;
+}
+
+.card__title{
+  margin:.15rem 0 .25rem;
+  font-weight:700;
+  font-size:.9rem;
+  line-height:1.25;
+}
+
+.card__desc{
+  font-size:.75rem;
+  line-height:1.3;
+  color:var(--clr-muted);
+  margin-bottom:.75rem;
+  height:2.6rem;                 /* mismo alto en todas */
+  overflow:hidden;
+}
+
+/* Precio & stock */
+.card__price{
+  font-size:1.05rem;
+  font-weight:700;
+  color:var(--clr-price);
+}
+
+.card__stock{
+  font-size:.72rem;
+  color:var(--clr-muted);
+  margin-bottom:.75rem;
+}
+
+/* Botón */
+.card__footer{
+  padding:.75rem .9rem 1rem;
+  margin-top:auto;               /* empuja al fondo */
+}
+
+.card__btn{
+  width:100%;
+  border:none;
+  border-radius:var(--radius);
+  padding:.45rem 1rem;
+  font-size:.78rem;
+  font-weight:600;
+  color:#fff;
+  background:var(--clr-btn);
+  cursor:pointer;
+  transition:background .2s;
+}
+
+.card__btn:hover{background:var(--clr-btn-hover);}
+
+.card__btn:disabled{
+  background:var(--clr-btn-disabled);
+  color:#6d7280;
+  cursor:not-allowed;
+}
+
+
+
+
+
+
+
+

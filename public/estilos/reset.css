@@ -1,22 +1,3 @@
-
-/* ========================================
-   RESET Y ESTILOS BASE
-======================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 16px;
-}
-
-
-
-
-
-
 /* ===========================
    NAVBAR (mobile-first, CSS vars)
    =========================== */
@@ -39,6 +20,48 @@ html {
   /* Motion */
   --t: .25s ease;
 }
+
+/* ─────────── Variables y reset ─────────── */
+:root{
+  --clr-bg:        #f9fafb;
+  --clr-card:      #ffffff;
+  --clr-border:    #e5e7eb;
+  --clr-text:      #374151;
+  --clr-muted:     #6b7280;
+  --clr-price:     #047857;
+  --clr-btn:       #059669;
+  --clr-btn-hover: #047857;
+  --clr-btn-disabled:#d1d5db;
+  --clr-out-stock: #111;
+  --radius:        8px;
+  --shadow:        0 1px 4px rgb(0 0 0 / .06);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+
+
+
+
+
+/* ========================================
+   RESET Y ESTILOS BASE
+======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+
+
+
+
+
+
 
 
 html, body{

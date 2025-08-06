@@ -1,0 +1,22 @@
+/* CSS */
+.banner{
+  width:100vw; 
+           /* ≃ 338 ⅔ px, mismo ancho que el rectángulo SVG */
+  background:#ffffff;
+  padding:1rem 0.5rem;     /* espacio interno */
+  text-align:center;       
+  font-family:'Poppins',sans-serif;
+}
+
+.banner__title{
+  color:#1f2937;           /* gris muy oscuro */
+  font-size:1.2rem;        /* ≃ 19 px (8.466 pt) */
+  font-weight:700;
+  margin:0 0 .25rem;
+}
+
+.banner__subtitle{
+  color:#6b7280;           /* gris medio */
+  font-size:.75rem;        /* ≃ 12 px (4.233 pt) */
+  margin:0;
+}

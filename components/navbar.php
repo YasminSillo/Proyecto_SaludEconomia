@@ -19,19 +19,22 @@
         <nav class="nav">
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a href="#inicio" class="nav__link nav__link--active">Inicio</a>
+                    <a href="index.php" class="nav__link nav__link--active">Inicio</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#catalogo" class="nav__link">Catalogo</a>
+                    <a href="catalogo.php" class="nav__link">Catalogo</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#patrocinadores" class="nav__link">Patrocinadores</a>
+                    <a href="patrocinadores.php" class="nav__link">Patrocinadores</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#nosotros" class="nav__link">Nosotros</a>
+                    <a href="nosotros.php" class="nav__link">Nosotros</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#sesion" class="nav__link">Iniciar sesión</a>
+                    <a href="iniciar_sesion.php" class="nav__link">Iniciar sesión</a>
+                </li>
+                <li class="nav__item">
+                    <a href="iniciar_sesion.php?action=register" class="nav__link">Registrarse</a>
                 </li>
             </ul>
         </nav>   

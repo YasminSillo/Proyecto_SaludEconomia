@@ -1,0 +1,63 @@
+
+/* ========================================
+   RESET Y ESTILOS BASE
+======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+
+
+
+
+
+/* ===========================
+   NAVBAR (mobile-first, CSS vars)
+   =========================== */
+:root{
+  /* Layout */
+  --bp: 640px;                  /* breakpoint (mobile <-> desktop) */
+  --maxw: 1280px;
+  --h-mobile: 80px;
+  --h-desktop: 120px;
+  --pad-mobile: 8px;            /* separación a ambos lados en móvil */
+  --pad-desktop: 12px;          /* separación a ambos lados en desktop */
+
+  /* Colors */
+  --bg-page: #e0e0e0ff;         /* fondo general */
+  --brand: #ffffff;             /* barra - ahora blanco */
+  --brand-strong: #17bfc1;      /* detalles */
+  --ink: #00d4aa;               /* texto - ahora verde */
+  --ink-dim: rgba(0,212,170,.85); /* texto tenue - verde con transparencia */
+
+  /* Motion */
+  --t: .25s ease;
+}
+
+
+html, body{
+  height:100%;
+  background: var(--bg-page);
+}
+*,
+*::before,
+*::after{ box-sizing: border-box; }  /* reset + border-box */
+
+body{
+  margin:0;
+  padding-top: var(--h-mobile);
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+  color: var(--ink);
+}
+
+@media (min-width: 720px) {
+  body {
+    padding-top: var(--h-desktop);
+  }
+}

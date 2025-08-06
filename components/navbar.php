@@ -22,21 +22,19 @@
                     <a href="#inicio" class="nav__link nav__link--active">Inicio</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#nosotros" class="nav__link">Nosotros</a>
-                </li>
-                <li class="nav__item">
                     <a href="#catalogo" class="nav__link">Catalogo</a>
                 </li>
                 <li class="nav__item">
                     <a href="#patrocinadores" class="nav__link">Patrocinadores</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#certificaciones" class="nav__link">Certificaciones</a>
+                    <a href="#nosotros" class="nav__link">Nosotros</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#contacto" class="nav__link">Contacto</a>
+                    <a href="#sesion" class="nav__link">Iniciar sesión</a>
                 </li>
             </ul>
         </nav>   
     </div>
 </header>
+

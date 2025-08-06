@@ -1,0 +1,245 @@
+/* ========================================
+   SPONSORS SECTION - INFINITE LOGO SCROLL
+======================================== */
+
+.sponsors {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Patrón de fondo sutil */
+.sponsors::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(74, 158, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 212, 170, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.sponsors__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.sponsors__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sponsors__subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    font-weight: 300;
+}
+
+/* Contenedor de la cinta */
+.sponsors__ticker {
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem 0;
+    position: relative;
+}
+
+/* Efectos de desvanecimiento en los bordes */
+.sponsors__ticker::before,
+.sponsors__ticker::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.sponsors__ticker::before {
+    left: 0;
+    background: linear-gradient(to right, #1e293b, transparent);
+}
+
+.sponsors__ticker::after {
+    right: 0;
+    background: linear-gradient(to left, #1e293b, transparent);
+}
+
+/* Pista que se desplaza */
+.sponsors__track {
+    display: inline-flex;
+    align-items: center;
+    gap: 6rem;
+    white-space: nowrap;
+    animation: sponsorScroll 40s linear infinite;
+    will-change: transform;
+}
+
+/* Pausar animación al hover */
+.sponsors__ticker:hover .sponsors__track {
+    animation-play-state: paused;
+}
+
+/* Cada logo */
+.sponsors__item {
+    flex: 0 0 auto;
+    display: inline-block;
+}
+
+.sponsors__item img {
+    height: 80px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 8px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sponsors__item img:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 212, 170, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Animación */
+@keyframes sponsorScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sponsors {
+        padding: 3rem 0;
+    }
+    
+    .sponsors__container {
+        margin-bottom: 2rem;
+    }
+    
+    .sponsors__track {
+        gap: 4rem;
+        animation-duration: 35s;
+    }
+    
+    .sponsors__item img {
+        height: 70px;
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sponsors {
+        padding: 2.5rem 0;
+    }
+    
+    .sponsors__container {
+        padding: 0 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .sponsors__track {
+        gap: 3rem;
+        animation-duration: 30s;
+    }
+    
+    .sponsors__item img {
+        height: 60px;
+        padding: 0.6rem;
+    }
+    
+    .sponsors__ticker::before,
+    .sponsors__ticker::after {
+        width: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sponsors {
+        padding: 2rem 0;
+    }
+    
+    .sponsors__container {
+        padding: 0 1rem;
+    }
+    
+    .sponsors__track {
+        gap: 2rem;
+        animation-duration: 25s;
+    }
+    
+    .sponsors__item img {
+        height: 50px;
+        max-width: 150px;
+        padding: 0.5rem;
+    }
+    
+    .sponsors__ticker::before,
+    .sponsors__ticker::after {
+        width: 30px;
+    }
+}
+
+/* Estados de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .sponsors__track {
+        animation: none;
+        transform: translateX(0);
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+    
+    .sponsors__item img {
+        position: static;
+    }
+}
+
+/* Mejora del contraste para accesibilidad */
+@media (prefers-contrast: high) {
+    .sponsors {
+        background: #000000;
+    }
+    
+    .sponsors__title {
+        color: #ffffff;
+    }
+    
+    .sponsors__subtitle {
+        color: #e2e8f0;
+    }
+    
+    .sponsors__item img {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* Estados de foco */
+.sponsors__item:focus-within img {
+    transform: scale(1.1);
+    opacity: 1;
+    outline: 2px solid #4a9eff;
+    outline-offset: 4px;
+}

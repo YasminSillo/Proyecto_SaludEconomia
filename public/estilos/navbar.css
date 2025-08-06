@@ -1,0 +1,222 @@
+
+
+/* ===========================
+   Header
+   =========================== */
+.header{
+  width: 100%;
+  background: var(--brand);
+  color: var(--ink);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--h-mobile);
+  display: block;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 212, 170, 0.1);
+}
+
+.header_container{
+  margin-inline: auto;
+  max-width: var(--maxw);
+  height: 100%;
+  padding-inline: var(--pad-mobile);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Logo block (left) */
+.header__logo{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  align-items: center;
+  gap: 12px;
+}
+.header__logo img{
+  height: calc(var(--h-mobile) - 16px);
+  width: auto;
+  display: block;
+}
+.header__logo h2,
+.header__logo h5{
+  margin:0;
+  line-height: 1;
+  color: var(--ink);
+}
+.header__logo h2{
+  font-size: 1.4rem;
+  letter-spacing:.02em;
+}
+.header__logo h5{
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--ink-dim);
+}
+
+/* ===========================
+   Menu button (label) + checkbox
+   =========================== */
+.header__menu-toggle{
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.header__menu-button{
+  width: 36px;
+  height: 32px;
+  display: inline-grid;
+  align-items: center;
+  justify-items: center;
+  gap: 4px;
+  border: 1.5px solid var(--ink);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color var(--t), background var(--t);
+  user-select: none;
+}
+.header__menu-button:hover{
+  background: rgba(0,212,170,.08);
+}
+
+/* 3 lines */
+.header__menu-button span{
+  display:block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  transition: transform var(--t), opacity var(--t);
+  transform-origin: center;
+}
+
+/* transform to "X" when checked */
+.header__menu-toggle:checked + .header__menu-button span:nth-child(1){
+  transform: translateY(6px) rotate(45deg);
+}
+.header__menu-toggle:checked + .header__menu-button span:nth-child(2){
+  opacity: 0;
+}
+.header__menu-toggle:checked + .header__menu-button span:nth-child(3){
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ===========================
+   Navigation
+   =========================== */
+.nav{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;                    /* se expande hacia abajo en móvil */
+  background: #ffffff;          /* panel desplegable */
+  color: #111;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height var(--t);
+  box-shadow: 0 2px 6px rgba(0,0,0,.12);
+}
+
+/* abrir cuando el checkbox está activo */
+.header__menu-toggle:checked ~ .nav{
+  max-height: 320px;            /* suficiente para todos los items */
+}
+
+.nav__list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav__item{
+  border-top: 1px solid #e9eef0;
+}
+.nav__item:first-child{ border-top: none; }
+.nav__link{
+  display: block;
+  padding: 16px 20px;
+  text-decoration: none;
+  text-align: center;
+  color: #222;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background var(--t), color var(--t);
+}
+.nav__link:hover{
+  background: #f0f9f7;
+  color: #17bfc1;
+}
+.nav__link--active{
+  color: var(--brand-strong);
+}
+
+/* ===========================
+   Desktop ≥ breakpoint
+   =========================== */
+   
+@media (min-width: 720px){
+  .header{
+    height: var(--h-desktop);
+  }
+  .header_container{
+    padding-inline: var(--pad-desktop);
+  }
+  .header__logo img{
+    height: calc(var(--h-desktop) - 22px);
+  }
+
+  /* Ocultar botón hamburguesa */
+  .header__menu-button{
+    display: none;
+  }
+
+  /* Navegación horizontal a la derecha */
+  .nav{
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    max-height: none;
+  }
+  .nav__list{
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .nav__item{
+    border: 0;
+  }
+  .nav__link{
+    color: var(--ink);
+    padding: 15px 0;
+    font-size: 1.2rem;
+  }
+  .nav__link:hover{
+    color: #17bfc1;
+    background: transparent;
+  }
+  .nav__link--active{
+    position: relative;
+  }
+  .nav__link--active::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-10px;
+    height:3px;
+    border-radius:3px;
+    background: var(--ink);
+  }
+}
+
+
+/* ===========================
+   Accessibility / optional polish
+   =========================== */
+@media (prefers-reduced-motion: reduce){
+  .header__menu-button span,
+  .nav{
+    transition: none;
+  }
+}

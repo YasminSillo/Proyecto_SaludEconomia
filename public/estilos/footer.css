@@ -1,0 +1,266 @@
+/* ========================================
+   FOOTER SECTION - CSS GRID & RESPONSIVE
+======================================== */
+
+.footer {
+    background: linear-gradient(135deg, #2c5aa0 0%, #1e293b 100%);
+    color: white;
+    padding: 3rem 0 0;
+}
+
+.footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    grid-template-areas: "brand links products contact";
+    gap: 3rem;
+    align-items: start;
+}
+
+/* Logo y descripción */
+.footer__brand {
+    grid-area: brand;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.footer__logo {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer__logo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.footer__logo-text h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: white;
+}
+
+.footer__logo-text span {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer__description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+/* Enlaces */
+.footer__links {
+    grid-area: links;
+}
+
+.footer__products {
+    grid-area: products;
+}
+
+.footer__contact {
+    grid-area: contact;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.footer__title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    color: #00d4aa;
+    border-bottom: 2px solid #00d4aa;
+    padding-bottom: 0.5rem;
+    width: fit-content;
+}
+
+.footer__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.8rem;
+}
+
+.footer__link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0;
+}
+
+.footer__link:hover {
+    color: #00d4aa;
+    transform: translateX(5px);
+}
+
+/* Información de contacto */
+.footer__contact-info {
+    display: grid;
+    gap: 1rem;
+}
+
+.footer__contact-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.footer__contact-icon {
+    font-size: 1.2rem;
+    color: #00d4aa;
+    width: 20px;
+    text-align: center;
+}
+
+/* Redes sociales */
+.footer__social {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.footer__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer__social-link i {
+    font-size: 1.2rem;
+}
+
+.footer__social-link:hover {
+    background: #00d4aa;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Copyright */
+.footer__bottom {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.footer__copyright {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.footer__copyright p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+
+.footer__dev {
+    font-size: 0.85rem !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Media Queries Responsive */
+@media (max-width: 1024px) {
+    .footer__container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "brand contact"
+            "links products";
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 0 0;
+    }
+    
+    .footer__container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "brand"
+            "links" 
+            "products"
+            "contact";
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+    
+    .footer__logo {
+        justify-items: center;
+        text-align: center;
+    }
+    
+    .footer__description {
+        text-align: center;
+    }
+    
+    .footer__social {
+        justify-self: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 1.5rem 0 0;
+    }
+    
+    .footer__container {
+        padding: 0 1rem;
+        gap: 1.5rem;
+    }
+    
+    .footer__logo {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .footer__logo-img {
+        width: 45px;
+        height: 45px;
+        justify-self: center;
+    }
+    
+    .footer__social {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 200px;
+    }
+    
+    .footer__social-link {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    .footer__bottom {
+        padding: 1.5rem 0;
+    }
+    
+    .footer__copyright {
+        padding: 0 1rem;
+    }
+}

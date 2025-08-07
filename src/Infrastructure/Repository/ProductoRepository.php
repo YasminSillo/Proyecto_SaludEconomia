@@ -37,25 +37,31 @@ class ProductoRepository implements ProductoRepositoryInterface
 
     public function guardar(Producto $producto)
     {
-        $sql = "INSERT INTO productos (codigo_sku, nombre, categoria_id, proveedor_id) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO productos (codigo_sku, nombre, descripcion, precio, categoria_id, proveedor_id, imagen) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($sql);
         return $stmt->execute([
             $producto->getCodigoSku(),
             $producto->getNombre(),
+            $producto->getDescripcion(),
+            $producto->getPrecio(),
             $producto->getCategoriaId(),
-            $producto->getProveedorId()
+            $producto->getProveedorId(),
+            $producto->getImagen()
         ]);
     }
 
     public function actualizar(Producto $producto)
     {
-        $sql = "UPDATE productos SET codigo_sku = ?, nombre = ?, categoria_id = ?, proveedor_id = ? WHERE id_producto = ?";
+        $sql = "UPDATE productos SET codigo_sku = ?, nombre = ?, descripcion = ?, precio = ?, categoria_id = ?, proveedor_id = ?, imagen = ? WHERE id_producto = ?";
         $stmt = $this->db->prepare($sql);
         return $stmt->execute([
             $producto->getCodigoSku(),
             $producto->getNombre(),
+            $producto->getDescripcion(),
+            $producto->getPrecio(),
             $producto->getCategoriaId(),
             $producto->getProveedorId(),
+            $producto->getImagen(),
             $producto->getId()
         ]);
     }
@@ -132,7 +138,10 @@ class ProductoRepository implements ProductoRepositoryInterface
             $data['codigo_sku'],
             $data['nombre'],
             $data['categoria_id'],
-            $data['proveedor_id']
+            $data['proveedor_id'],
+            $data['descripcion'] ?? null,
+            $data['precio'] ?? null,
+            $data['imagen'] ?? null
         );
     }
 

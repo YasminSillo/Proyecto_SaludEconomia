@@ -1,112 +1,77 @@
-
-
-
-
 <section class="catalog">
-
-  <!-- Tarjeta 1 -->
-  <article class="card">
-    <div class="card__img">Imagen&nbsp;&nbsp;&nbsp;Producto</div>
-    <div class="card__body">
-      <div class="card__category">Cuidado personal</div>
-      <h3 class="card__title">Shampoo Medicinal Anticaspa 500ml Premium</h3>
-      <p class="card__desc">Fórmula avanzada para el tratamiento efectivo de la caspa.</p>
-      <div class="card__price">S/ 45.90</div>
-      <div class="card__stock">Stock: 25</div>
+  
+  <?php if (isset($error)): ?>
+    <div class="error-message" style="grid-column: 1/-1; padding: 2rem; background: #f8d7da; color: #721c24; border-radius: 8px; margin-bottom: 2rem;">
+      <h3>Error al cargar productos</h3>
+      <p><?php echo htmlspecialchars($error); ?></p>
     </div>
-    <div class="card__footer"><button class="card__btn">Añadir al Carrito</button></div>
-  </article>
+  <?php endif; ?>
 
-  <!-- Tarjeta 2 -->
-  <article class="card">
-    <div class="card__img">Imagen&nbsp;&nbsp;&nbsp;Producto</div>
-    <div class="card__body">
-      <div class="card__category">Material quirúrgico</div>
-      <h3 class="card__title">Jeringa Desechable 10 ml Estéril – Caja × 100&nbsp;und</h3>
-      <p class="card__desc">Jeringas estériles de alta calidad para uso médico profesional.</p>
-      <div class="card__price">S/ 89.00</div>
-      <div class="card__stock">Stock: 12</div>
+  <?php if (empty($productos)): ?>
+    <div class="no-products" style="grid-column: 1/-1; text-align: center; padding: 4rem 2rem;">
+      <h3>No se encontraron productos</h3>
+      <p>No hay productos disponibles en este momento.</p>
     </div>
-    <div class="card__footer"><button class="card__btn">Añadir al Carrito</button></div>
-  </article>
-
-  <!-- Tarjeta 3 -->
-  <article class="card">
-    <div class="card__img">Imagen&nbsp;&nbsp;&nbsp;Producto</div>
-    <div class="card__body">
-      <div class="card__category">Cuidado personal</div>
-      <h3 class="card__title">Gel Antibacterial 500 ml 70 % Alcohol – Pack × 12</h3>
-      <p class="card__desc">Protección completa contra bacterias y virus.</p>
-      <div class="card__price">S/ 156.00</div>
-      <div class="card__stock">Stock: 8</div>
-    </div>
-    <div class="card__footer"><button class="card__btn">Añadir al Carrito</button></div>
-  </article>
-
-  <!-- Tarjeta 4 (sin stock) -->
-  <article class="card card--out">
-    <div class="card__img">Sin&nbsp;Stock</div>
-    <div class="card__body">
-      <div class="card__category">Material quirúrgico</div>
-      <h3 class="card__title">Guantes de Nitrilo Talla M – Caja × 100</h3>
-      <p class="card__desc">Guantes resistentes y flexibles para procedimientos médicos.</p>
-      <div class="card__price">S/ 78.50</div>
-      <div class="card__stock" style="color:#ef4444;">Sin stock</div>
-    </div>
-    <div class="card__footer"><button class="card__btn" disabled>Sin Stock</button></div>
-  </article>
-
-  <!-- Tarjeta 5 -->
-  <article class="card">
-    <div class="card__img">Imagen&nbsp;&nbsp;&nbsp;Producto</div>
-    <div class="card__body">
-      <div class="card__category">Cuidado personal</div>
-      <h3 class="card__title">Mascarillas Quirúrgicas 3 Capas – Caja × 50</h3>
-      <p class="card__desc">Protección efectiva con filtro de 3 capas certificado.</p>
-      <div class="card__price">S/ 32.90</div>
-      <div class="card__stock">Stock: 45</div>
-    </div>
-    <div class="card__footer"><button class="card__btn">Añadir al Carrito</button></div>
-  </article>
-
-  <!-- Tarjeta 6 -->
-  <article class="card">
-    <div class="card__img">Imagen&nbsp;&nbsp;&nbsp;Producto</div>
-    <div class="card__body">
-      <div class="card__category">Material quirúrgico</div>
-      <h3 class="card__title">Termómetro Digital Infrarrojo Sin Contacto</h3>
-      <p class="card__desc">Medición precisa y rápida en menos de 1 segundo.</p>
-      <div class="card__price">S/ 125.00</div>
-      <div class="card__stock">Stock: 6</div>
-    </div>
-    <div class="card__footer"><button class="card__btn">Añadir al Carrito</button></div>
-  </article>
-
-  <!-- Tarjeta 7 -->
-  <article class="card">
-    <div class="card__img">Imagen&nbsp;&nbsp;&nbsp;Producto</div>
-    <div class="card__body">
-      <div class="card__category">Cuidado personal</div>
-      <h3 class="card__title">Alcohol Medicinal 96° 1 Litro – Uso Médico</h3>
-      <p class="card__desc">Alcohol etílico para desinfección y esterilización profesional.</p>
-      <div class="card__price">S/ 18.50</div>
-      <div class="card__stock">Stock: 67</div>
-    </div>
-    <div class="card__footer"><button class="card__btn">Añadir al Carrito</button></div>
-  </article>
-
-  <!-- Tarjeta 8 -->
-  <article class="card">
-    <div class="card__img">Imagen&nbsp;&nbsp;&nbsp;Producto</div>
-    <div class="card__body">
-      <div class="card__category">Material quirúrgico</div>
-      <h3 class="card__title">Vendas Elásticas 5 cm × 4.5 m – Pack × 12</h3>
-      <p class="card__desc">Vendas de compresión elásticas autoadhesivas.</p>
-      <div class="card__price">S/ 64.80</div>
-      <div class="card__stock">Stock: 18</div>
-    </div>
-    <div class="card__footer"><button class="card__btn">Añadir al Carrito</button></div>
-  </article>
+  <?php else: ?>
+    <?php foreach ($productos as $producto): ?>
+      <article class="card">
+        <div class="card__img" style="overflow: hidden; display: flex; align-items: center; justify-content: center;">
+          <?php 
+          $rutaImagen = '/imagenes/no-image.svg'; // Por defecto
+          if ($producto->tieneImagen()) {
+              $rutaImagen = '/imagenes/productos/' . $producto->getImagen();
+          }
+          ?>
+          <img src="<?php echo htmlspecialchars($rutaImagen); ?>" 
+               alt="<?php echo htmlspecialchars($producto->getNombre()); ?>"
+               style="max-width: 100%; max-height: 100%; object-fit: cover;"
+               onerror="this.src='/imagenes/no-image.svg'">
+        </div>
+        <div class="card__body">
+          <div class="card__category">
+            <?php echo htmlspecialchars($producto->categoriaNombre ?? 'Sin categoría'); ?>
+          </div>
+          <h3 class="card__title">
+            <?php echo htmlspecialchars($producto->getNombre()); ?>
+          </h3>
+          <p class="card__desc">
+            <?php if ($producto->getDescripcion()): ?>
+              <?php echo htmlspecialchars(substr($producto->getDescripcion(), 0, 120)); ?>
+              <?php if (strlen($producto->getDescripcion()) > 120): ?>...<?php endif; ?>
+              <br>
+            <?php endif; ?>
+            <small style="color: #666;">
+              SKU: <?php echo htmlspecialchars($producto->getCodigoSku()); ?>
+              <?php if ($producto->proveedorNombre): ?>
+                | <?php echo htmlspecialchars($producto->proveedorNombre); ?>
+              <?php endif; ?>
+            </small>
+          </p>
+          <div class="card__price">
+            <?php if ($producto->getPrecio()): ?>
+              S/ <?php echo number_format($producto->getPrecio(), 2); ?>
+            <?php else: ?>
+              Consultar precio
+            <?php endif; ?>
+          </div>
+          <div class="card__stock">Disponible</div>
+        </div>
+        <div class="card__footer">
+          <button class="card__btn" onclick="contactarVenta('<?php echo htmlspecialchars($producto->getNombre()); ?>')">
+            Consultar
+          </button>
+        </div>
+      </article>
+    <?php endforeach; ?>
+  <?php endif; ?>
 
 </section>
 
+<script>
+function contactarVenta(nombreProducto) {
+  // Función para contactar por WhatsApp o mostrar información de contacto
+  const mensaje = encodeURIComponent(`Hola, me interesa el producto: ${nombreProducto}`);
+  const whatsapp = `https://wa.me/51999999999?text=${mensaje}`; // Reemplazar con número real
+  window.open(whatsapp, '_blank');
+}
+</script>

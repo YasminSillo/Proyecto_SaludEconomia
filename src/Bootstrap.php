@@ -21,6 +21,7 @@ require_once __DIR__ . '/Domain/Port/ProductoRepositoryInterface.php';
 require_once __DIR__ . '/Domain/Port/PedidoRepositoryInterface.php';
 require_once __DIR__ . '/Domain/Port/CategoriaRepositoryInterface.php';
 require_once __DIR__ . '/Domain/Port/ProveedorRepositoryInterface.php';
+require_once __DIR__ . '/Domain/Port/ImagenRepositoryInterface.php';
 
 require_once __DIR__ . '/Infrastructure/Database/DatabaseConnection.php';
 require_once __DIR__ . '/Infrastructure/Repository/UsuarioRepository.php';
@@ -28,6 +29,7 @@ require_once __DIR__ . '/Infrastructure/Repository/ClienteRepository.php';
 require_once __DIR__ . '/Infrastructure/Repository/ProductoRepository.php';
 require_once __DIR__ . '/Infrastructure/Repository/CategoriaRepository.php';
 require_once __DIR__ . '/Infrastructure/Repository/ProveedorRepository.php';
+require_once __DIR__ . '/Infrastructure/Repository/ImagenRepository.php';
 
 require_once __DIR__ . '/Application/UseCase/CrearUsuarioUseCase.php';
 require_once __DIR__ . '/Application/UseCase/AutenticarUsuarioUseCase.php';
@@ -53,12 +55,13 @@ class Bootstrap
         $this->container['productoRepository'] = new ProductoRepository($this->container['db']);
         $this->container['categoriaRepository'] = new CategoriaRepository($this->container['db']);
         $this->container['proveedorRepository'] = new ProveedorRepository($this->container['db']);
+        $this->container['imagenRepository'] = new ImagenRepository();
         
         $this->container['crearUsuarioUseCase'] = new CrearUsuarioUseCase($this->container['usuarioRepository']);
         $this->container['autenticarUsuarioUseCase'] = new AutenticarUsuarioUseCase($this->container['usuarioRepository']);
         $this->container['crearClienteUseCase'] = new CrearClienteUseCase($this->container['clienteRepository']);
         $this->container['obtenerProductosUseCase'] = new ObtenerProductosUseCase($this->container['productoRepository'], $this->container['categoriaRepository']);
-        $this->container['crearProductoUseCase'] = new CrearProductoUseCase($this->container['productoRepository']);
+        $this->container['crearProductoUseCase'] = new CrearProductoUseCase($this->container['productoRepository'], $this->container['imagenRepository']);
     }
 
     public function get($service)

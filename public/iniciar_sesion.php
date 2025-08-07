@@ -1,35 +1,71 @@
 <?php 
-require_once __DIR__ . '/../src/infraestructure/Conexion.php';
+require_once __DIR__ . '/../src/Bootstrap.php';
+$bootstrap = new Bootstrap();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    var_export($_POST);
-
-    if ($_POST["formulario_seleccionado"] === "formulario_iniciar_sesion") {
-        
-
-        
-    } elseif ($_POST["formulario_seleccionado"] === "formulario_registro") {
-        // Suponiendo que ya tienes la conexión $conexion (PDO) 
-        $passwordHash = password_hash($datos['password'], PASSWORD_DEFAULT);
-        $stmt = $conexion->prepare("INSERT INTO usuarios (email, password_hash) VALUES (:email, :password_hash)");
-        $stmt->bindParam(':email', $_POST['email']);
-        $stmt->bindParam(':password_hash', $passwordHash); // Asumiendo que ya has generado el hash
-        $stmt->execute();
-
-    } else {
-        // Manejo de error si el formulario no es reconocido
-        echo "Formulario no reconocido.";
-        exit();
+    try {
+        if ($_POST["formulario_seleccionado"] === "formulario_iniciar_sesion") {
+            $email = $_POST['email'] ?? '';
+            $password = $_POST['password'] ?? '';
+            
+            if (empty($email) || empty($password)) {
+                $error = "Email y contraseña son requeridos";
+            } else {
+                $autenticarUseCase = $bootstrap->getAutenticarUsuarioUseCase();
+                $usuario = $autenticarUseCase->ejecutar($email, $password);
+                
+                session_start();
+                $_SESSION['usuario_id'] = $usuario->getId();
+                $_SESSION['usuario_nombre'] = $usuario->getNombre();
+                $_SESSION['usuario_rol'] = $usuario->getRol();
+                
+                if ($usuario->getRol() === 'admin') {
+                    header("Location: admin/index.php");
+                } else {
+                    header("Location: index.php");
+                }
+                exit();
+            }
+        } elseif ($_POST["formulario_seleccionado"] === "formulario_registro") {
+            $nombre = ($_POST['nombre'] ?? '') . ' ' . ($_POST['apellido'] ?? '');
+            $email = $_POST['email'] ?? '';
+            $password = $_POST['password'] ?? '';
+            $confirmPassword = $_POST['confirm_password'] ?? '';
+            
+            if (empty($nombre) || empty($email) || empty($password)) {
+                $error = "Todos los campos son requeridos";
+            } elseif ($password !== $confirmPassword) {
+                $error = "Las contraseñas no coinciden";
+            } else {
+                $crearUsuarioUseCase = $bootstrap->getCrearUsuarioUseCase();
+                $crearUsuarioUseCase->ejecutar($nombre, $email, $password);
+                
+                $crearClienteUseCase = $bootstrap->getCrearClienteUseCase();
+                $tipoCliente = !empty($_POST['ruc']) ? 'juridico' : 'natural';
+                $rucDni = !empty($_POST['ruc']) ? $_POST['ruc'] : $_POST['dni'];
+                $crearClienteUseCase->ejecutar($tipoCliente, $nombre, $email, $rucDni);
+                
+                $success = "Usuario registrado exitosamente";
+            }
+        }
+    } catch (Exception $e) {
+        $error = $e->getMessage();
     }
-    // Acción para método POST
-array ( 'nombre' => 'sergio7surco@gmail.com', 'apellido' => 'El DNI debe tesergio7surco@gmail.com digitos', 'dni' => 'sergio7surco@gmail.com', 'telefono' => 'sergio7surco@gmail.com', 'empresa' => 'sergio7surco@gmail.com', 'ruc' => 'sergio7surco@gmail.com', 'tipo_negocio' => 'clinica', 'direccion' => 'sergio7surco@gmail.com', 'email' => 'sergio7surco@gmail.comere', 'password' => 'sergio7surco@gmail.com', 'confirm_password' => 'sergio7surco@gmail.com', 'terms' => 'on', 'formulario_seleccionado' => 'formulario_registro', );
-    // header("Location: " . $_SERVER['PHP_SELF']);
-    exit();
 }
 
 
 // Determinar que formulario mostrar basado en el parametro GET
 $mostrar_registro = isset($_GET['action']) && $_GET['action'] === 'register';
+
+// Mensajes del sistema
+if (isset($_GET['logout']) && $_GET['logout'] == '1') {
+    $success = "Sesión cerrada correctamente";
+}
+
+if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+}
+
 require_once __DIR__ . '/../components/header.php'; 
 ?>
 <body>
@@ -38,6 +74,18 @@ require_once __DIR__ . '/../components/header.php';
 
     <!-- CONTENIDO PRINCIPAL-->
     <main class="main">
+        <?php if (isset($error)): ?>
+            <div class="error-message" style="background: #f8d7da; color: #721c24; padding: 10px; margin: 10px; border-radius: 5px;">
+                <?php echo htmlspecialchars($error); ?>
+            </div>
+        <?php endif; ?>
+        
+        <?php if (isset($success)): ?>
+            <div class="success-message" style="background: #d4edda; color: #155724; padding: 10px; margin: 10px; border-radius: 5px;">
+                <?php echo htmlspecialchars($success); ?>
+            </div>
+        <?php endif; ?>
+        
         <?php 
         if ($mostrar_registro) {
             require_once __DIR__ . '/../components/formulario_registro.php';

@@ -1,4 +1,8 @@
-<?php require_once __DIR__ . '/../components/header.php'; ?>
+<?php 
+require_once __DIR__ . '/../src/Bootstrap.php';
+$bootstrap = new Bootstrap();
+require_once __DIR__ . '/../components/header.php'; 
+?>
 <body>
 
     <!--ESTRUCTURA PRINCIPAL CON CSS GRID-->

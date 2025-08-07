@@ -1,0 +1,40 @@
+# Protección adicional del directorio admin
+# Evitar acceso directo a archivos sensibles
+
+# Denegar acceso a archivos de configuración
+<Files "auth_check.php">
+    Require all denied
+</Files>
+
+# Proteger archivos de backup y temporales
+<FilesMatch "\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)$">
+    Require all denied
+</FilesMatch>
+
+# Proteger archivos que empiecen con punto
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Evitar listado de directorios
+Options -Indexes
+
+# Headers de seguridad
+<IfModule mod_headers.c>
+    # Prevenir XSS
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # HSTS (comentado para desarrollo local)
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    
+    # CSP básico (ajustar según necesidades)
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self';"
+</IfModule>
+
+# Prevenir ataques de fuerza bruta (comentado para desarrollo)
+# <RequireAll>
+#     Require all granted
+#     Require not ip 192.168.1.100
+# </RequireAll>

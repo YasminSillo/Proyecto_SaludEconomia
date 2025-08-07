@@ -62,8 +62,6 @@
                                    name="dni" 
                                    class="form-input" 
                                    placeholder="12345678" 
-                                   maxlength="8"
-                                   pattern="[0-9]{8}"
                                    required>
                             <div class="form-error" id="dni-error"></div>
                         </div>
@@ -115,9 +113,7 @@
                                    id="ruc" 
                                    name="ruc" 
                                    class="form-input" 
-                                   placeholder="20123456789" 
-                                   maxlength="11"
-                                   pattern="[0-9]{11}">
+                                   placeholder="20123456789"  >
                             <div class="form-error" id="ruc-error"></div>
                         </div>
 
@@ -235,6 +231,11 @@
                     <div class="form-error" id="terms-error"></div>
                 </div>
 
+                <input type="hidden" 
+                        id="formulario_registro" 
+                        name="formulario_seleccionado" 
+                        value="formulario_registro"
+                        required>
                 <!-- Boton de envio -->
                 <button type="submit" class="register-btn">
                     <i class="fas fa-user-plus register-btn-icon"></i>
@@ -288,131 +289,4 @@
     </div>
 </section>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Funcionalidad para mostrar/ocultar contrasenas
-    const passwordToggles = document.querySelectorAll('.password-toggle');
-    
-    passwordToggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
-            const passwordField = this.previousElementSibling;
-            const icon = this.querySelector('i');
-            
-            if (passwordField.type === 'password') {
-                passwordField.type = 'text';
-                icon.className = 'fas fa-eye-slash';
-            } else {
-                passwordField.type = 'password';
-                icon.className = 'fas fa-eye';
-            }
-        });
-    });
 
-    // Validacion del formulario
-    const form = document.querySelector('.register-form');
-    const inputs = {
-        nombre: document.querySelector('#nombre'),
-        apellido: document.querySelector('#apellido'),
-        dni: document.querySelector('#dni'),
-        telefono: document.querySelector('#telefono'),
-        empresa: document.querySelector('#empresa'),
-        email: document.querySelector('#email'),
-        password: document.querySelector('#password'),
-        confirm_password: document.querySelector('#confirm_password'),
-        terms: document.querySelector('input[name="terms"]')
-    };
-
-    // Validacion en tiempo real del DNI
-    inputs.dni.addEventListener('input', function() {
-        this.value = this.value.replace(/[^0-9]/g, '').slice(0, 8);
-    });
-
-    // Validacion en tiempo real del RUC
-    const rucInput = document.querySelector('#ruc');
-    if (rucInput) {
-        rucInput.addEventListener('input', function() {
-            this.value = this.value.replace(/[^0-9]/g, '').slice(0, 11);
-        });
-    }
-
-    // Validacion del formulario al enviar
-    form.addEventListener('submit', function(e) {
-        let isValid = true;
-
-        // Validar nombre
-        if (!inputs.nombre.value.trim()) {
-            showError('nombre', 'El nombre es requerido');
-            isValid = false;
-        } else {
-            hideError('nombre');
-        }
-
-        // Validar apellido
-        if (!inputs.apellido.value.trim()) {
-            showError('apellido', 'El apellido es requerido');
-            isValid = false;
-        } else {
-            hideError('apellido');
-        }
-
-        // Validar DNI
-        if (!inputs.dni.value || inputs.dni.value.length !== 8) {
-            showError('dni', 'El DNI debe tener 8 digitos');
-            isValid = false;
-        } else {
-            hideError('dni');
-        }
-
-        // Validar email
-        if (!inputs.email.value || !inputs.email.validity.valid) {
-            showError('email', 'Por favor, ingresa un email valido');
-            isValid = false;
-        } else {
-            hideError('email');
-        }
-
-        // Validar contrasena
-        if (!inputs.password.value || inputs.password.value.length < 8) {
-            showError('password', 'La contrasena debe tener al menos 8 caracteres');
-            isValid = false;
-        } else {
-            hideError('password');
-        }
-
-        // Validar confirmacion de contrasena
-        if (inputs.password.value !== inputs.confirm_password.value) {
-            showError('confirm_password', 'Las contrasenas no coinciden');
-            isValid = false;
-        } else {
-            hideError('confirm_password');
-        }
-
-        // Validar terminos y condiciones
-        if (!inputs.terms.checked) {
-            showError('terms', 'Debes aceptar los terminos y condiciones');
-            isValid = false;
-        } else {
-            hideError('terms');
-        }
-
-        if (!isValid) {
-            e.preventDefault();
-        }
-    });
-
-    function showError(fieldName, message) {
-        const errorDiv = document.querySelector('#' + fieldName + '-error');
-        if (errorDiv) {
-            errorDiv.textContent = message;
-            errorDiv.style.display = 'block';
-        }
-    }
-
-    function hideError(fieldName) {
-        const errorDiv = document.querySelector('#' + fieldName + '-error');
-        if (errorDiv) {
-            errorDiv.style.display = 'none';
-        }
-    }
-});
-</script>

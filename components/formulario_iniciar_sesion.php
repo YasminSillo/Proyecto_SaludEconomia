@@ -59,6 +59,11 @@
                     <a href="#" class="forgot-password">Olvidaste tu contrasena?</a>
                 </div>
 
+                <input type="hidden" 
+                        id="formulario_iniciar_sesion" 
+                        name="formulario_seleccionado" 
+                        value="formulario_iniciar_sesion"
+                        required>
                 <!-- Boton de envio -->
                 <button type="submit" class="login-btn">
                     <i class="fas fa-sign-in-alt login-btn-icon"></i>

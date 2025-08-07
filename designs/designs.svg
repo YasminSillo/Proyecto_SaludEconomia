@@ -8,9 +8,9 @@
    xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
    <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25"
       inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1"
-      inkscape:document-units="mm" inkscape:zoom="0.26110523" inkscape:cx="-16847.613" inkscape:cy="4659.0411"
+      inkscape:document-units="mm" inkscape:zoom="0.73851711" inkscape:cx="-18446.424" inkscape:cy="4274.1054"
       inkscape:window-width="1920" inkscape:window-height="1009" inkscape:window-x="-8" inkscape:window-y="-8"
-      inkscape:window-maximized="1" inkscape:current-layer="g43" showgrid="false" />
+      inkscape:window-maximized="1" inkscape:current-layer="svg1" showgrid="false" />
    <defs id="defs1">
       <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f0f0f0" stroke-width="1" opacity="0.3" id="path53" />
@@ -84,11 +84,6 @@
       </g>
       <g id="usecase">
          <ellipse cx="100" cy="25" rx="90" ry="20" fill="#e8f4f8" stroke="#2c3e50" stroke-width="2" id="ellipse4" />
-      </g>
-      <g id="entity">
-         <rect width="160" height="120" fill="#f8f9fa" stroke="#2c3e50" stroke-width="2" rx="5" id="rect4-4" />
-         <rect width="160" height="30" fill="#2c3e50" id="rect5-5" /><text x="80" y="20" text-anchor="middle"
-            fill="white" font-family="Arial" font-size="12" font-weight="bold" id="text5-7">ENTITY</text>
       </g>
       <g id="relationship">
          <polygon points="60,0 120,30 60,60 0,30" fill="#fff3cd" stroke="#2c3e50" stroke-width="2" id="polygon5" />
@@ -193,7 +188,15 @@
 
 
 
+   <g id="entity" transform="translate(-4968.0581,1097.173)">
+      <rect width="160" height="120" fill="#f8f9fa" stroke="#2c3e50" stroke-width="2" rx="5" id="rect4-4" ry="5" x="0"
+         y="0" />
+      <rect width="160" height="30" fill="#2c3e50" id="rect5-5" x="0" y="0" /><text x="80.150116" y="27.731297"
+         text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="7.92797px" font-weight="bold" id="text5-7"
+         style="stroke-width:1">ENTITY</text>
+   </g>
    </defs>
+
    <g inkscape:label="Capa 1" inkscape:groupmode="layer" id="layer1">
       <line x1="-1872.168" y1="-102.05761" x2="-1533.5013" y2="-102.05761" stroke="#ff0000" stroke-width="0.529167"
          stroke-dasharray="5, 5" opacity="0.5" id="line1" /><text x="-1869.5222" y="-104.70345" fill="#ff0000"
@@ -1973,130 +1976,141 @@
          font-weight="bold" id="text119-4" style="stroke-width:0.264583">DIAGRAMA ENTIDAD-RELACIÓN</text>
       <g id="g43" inkscape:label="g43_modelo">
          <g transform="matrix(0.26458333,0,0,0.26458333,-4773.3247,1090.1025)" id="g125-7">
-            <use href="#entity" id="use119" /><text x="80" y="20" text-anchor="middle" fill="#ffffff"
-               font-family="Arial" font-size="12px" font-weight="bold" id="text120-4">USUARIOS</text><text x="10" y="45"
-               fill="#2c3e50" font-family="Arial" font-size="10px" id="text121-6">id_usuario (PK)</text><text x="10"
-               y="60" fill="#2c3e50" font-family="Arial" font-size="10px" id="text122-3">nombre</text><text x="10"
-               y="75" fill="#2c3e50" font-family="Arial" font-size="10px" id="text123-6">email</text><text x="10" y="90"
-               fill="#2c3e50" font-family="Arial" font-size="10px" id="text124-5">password_hash</text><text x="10"
-               y="105" fill="#2c3e50" font-family="Arial" font-size="10px" id="text125-28">rol</text>
+            <use href="#entity" id="use119" transform="translate(4968.0581,-1097.173)" /><text x="80" y="20"
+               text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="12px" font-weight="bold"
+               id="text120-4">USUARIOS</text><text x="10" y="45" fill="#2c3e50" font-family="Arial" font-size="10px"
+               id="text121-6">id_usuario (PK)</text><text x="10" y="60" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text122-3">nombre</text><text x="10" y="75" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text123-6">email</text><text x="10" y="90" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text124-5">password_hash</text><text x="10" y="105" fill="#2c3e50"
+               font-family="Arial" font-size="10px" id="text125-28">rol</text>
          </g>
          <g transform="matrix(0.26458333,0,0,0.26458333,-4693.9497,1090.1025)" id="g131">
-            <use href="#entity" id="use125-1" /><text x="80" y="20" text-anchor="middle" fill="#ffffff"
-               font-family="Arial" font-size="12px" font-weight="bold" id="text126-0">CATEGORIAS</text><text x="10"
-               y="45" fill="#2c3e50" font-family="Arial" font-size="10px" id="text127-3">id_categoria (PK)</text><text
-               x="10" y="60" fill="#2c3e50" font-family="Arial" font-size="10px" id="text128-1">nombre</text><text
-               x="10" y="75" fill="#2c3e50" font-family="Arial" font-size="10px" id="text129-5">descripcion</text><text
-               x="10" y="90" fill="#2c3e50" font-family="Arial" font-size="10px" id="text130-5">parent_id
+            <use href="#entity" id="use125-1" transform="translate(4968.0581,-1097.173)" /><text x="80" y="20"
+               text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="12px" font-weight="bold"
+               id="text126-0">CATEGORIAS</text><text x="10" y="45" fill="#2c3e50" font-family="Arial" font-size="10px"
+               id="text127-3">id_categoria (PK)</text><text x="10" y="60" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text128-1">nombre</text><text x="10" y="75" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text129-5">descripcion</text><text x="10" y="90" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text130-5">parent_id
                (FK)</text><text x="10" y="105" fill="#2c3e50" font-family="Arial" font-size="10px"
                id="text131-2">activo</text>
          </g>
          <g transform="matrix(0.26458333,0,0,0.26458333,-4614.5747,1090.1025)" id="g137">
-            <use href="#entity" id="use131" /><text x="80" y="20" text-anchor="middle" fill="#ffffff"
-               font-family="Arial" font-size="12px" font-weight="bold" id="text132-2">PROVEEDORES</text><text x="10"
-               y="45" fill="#2c3e50" font-family="Arial" font-size="10px" id="text133-1">id_proveedor (PK)</text><text
-               x="10" y="60" fill="#2c3e50" font-family="Arial" font-size="10px"
-               id="text134-7">nombre_empresa</text><text x="10" y="75" fill="#2c3e50" font-family="Arial"
-               font-size="10px" id="text135-4">contacto_nombre</text><text x="10" y="90" fill="#2c3e50"
-               font-family="Arial" font-size="10px" id="text136-8">email</text><text x="10" y="105" fill="#2c3e50"
-               font-family="Arial" font-size="10px" id="text137-2">ruc</text>
+            <use href="#entity" id="use131" transform="translate(4968.0581,-1097.173)" /><text x="80" y="20"
+               text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="12px" font-weight="bold"
+               id="text132-2">PROVEEDORES</text><text x="10" y="45" fill="#2c3e50" font-family="Arial" font-size="10px"
+               id="text133-1">id_proveedor (PK)</text><text x="10" y="60" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text134-7">nombre_empresa</text><text x="10" y="75" fill="#2c3e50"
+               font-family="Arial" font-size="10px" id="text135-4">contacto_nombre</text><text x="10" y="90"
+               fill="#2c3e50" font-family="Arial" font-size="10px" id="text136-8">email</text><text x="10" y="105"
+               fill="#2c3e50" font-family="Arial" font-size="10px" id="text137-2">ruc</text>
          </g>
          <g transform="matrix(0.26458333,0,0,0.26458333,-4535.1997,1090.1025)" id="g143">
-            <use href="#entity" id="use137" /><text x="80" y="20" text-anchor="middle" fill="#ffffff"
-               font-family="Arial" font-size="12px" font-weight="bold" id="text138-3">PRODUCTOS</text><text x="10"
-               y="45" fill="#2c3e50" font-family="Arial" font-size="10px" id="text139">id_producto (PK)</text><text
-               x="10" y="60" fill="#2c3e50" font-family="Arial" font-size="10px" id="text140-6">codigo_sku</text><text
-               x="10" y="75" fill="#2c3e50" font-family="Arial" font-size="10px" id="text141-3">nombre</text><text
-               x="10" y="90" fill="#2c3e50" font-family="Arial" font-size="10px" id="text142-0">categoria_id
+            <use href="#entity" id="use137" transform="translate(4968.0581,-1097.173)" /><text x="80" y="20"
+               text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="12px" font-weight="bold"
+               id="text138-3">PRODUCTOS</text><text x="10" y="45" fill="#2c3e50" font-family="Arial" font-size="10px"
+               id="text139">id_producto (PK)</text><text x="10" y="60" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text140-6">codigo_sku</text><text x="10" y="75" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text141-3">nombre</text><text x="10" y="90" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text142-0">categoria_id
                (FK)</text><text x="10" y="105" fill="#2c3e50" font-family="Arial" font-size="10px"
                id="text143-3">proveedor_id (FK)</text>
          </g>
          <g transform="matrix(0.26458333,0,0,0.26458333,-4455.8247,1090.1025)" id="g149">
-            <use href="#entity" id="use143" /><text x="80" y="20" text-anchor="middle" fill="#ffffff"
-               font-family="Arial" font-size="12px" font-weight="bold" id="text144-5">CLIENTES</text><text x="10" y="45"
-               fill="#2c3e50" font-family="Arial" font-size="10px" id="text145">id_cliente (PK)</text><text x="10"
-               y="60" fill="#2c3e50" font-family="Arial" font-size="10px" id="text146">tipo_cliente</text><text x="10"
-               y="75" fill="#2c3e50" font-family="Arial" font-size="10px" id="text147-2">nombre</text><text x="10"
-               y="90" fill="#2c3e50" font-family="Arial" font-size="10px" id="text148-8">email</text><text x="10"
-               y="105" fill="#2c3e50" font-family="Arial" font-size="10px" id="text149-0">ruc/dni</text>
+            <use href="#entity" id="use143" transform="translate(4968.0581,-1097.173)" /><text x="80" y="20"
+               text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="12px" font-weight="bold"
+               id="text144-5">CLIENTES</text><text x="10" y="45" fill="#2c3e50" font-family="Arial" font-size="10px"
+               id="text145">id_cliente (PK)</text><text x="10" y="60" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text146">tipo_cliente</text><text x="10" y="75" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text147-2">nombre</text><text x="10" y="90" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text148-8">email</text><text x="10" y="105" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text149-0">ruc/dni</text>
          </g>
          <g transform="matrix(0.26458333,0,0,0.26458333,-4693.9497,1156.2483)" id="g155">
-            <use href="#entity" id="use149-7" /><text x="80" y="20" text-anchor="middle" fill="#ffffff"
-               font-family="Arial" font-size="12px" font-weight="bold" id="text150-2">PEDIDOS</text><text x="10" y="45"
-               fill="#2c3e50" font-family="Arial" font-size="10px" id="text151-2">id_pedido (PK)</text><text x="10"
-               y="60" fill="#2c3e50" font-family="Arial" font-size="10px" id="text152-5">numero_pedido</text><text
-               x="10" y="75" fill="#2c3e50" font-family="Arial" font-size="10px" id="text153-9">cliente_id
+            <use href="#entity" id="use149-7" transform="translate(4968.0581,-1097.173)" /><text x="80" y="20"
+               text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="12px" font-weight="bold"
+               id="text150-2">PEDIDOS</text><text x="10" y="45" fill="#2c3e50" font-family="Arial" font-size="10px"
+               id="text151-2">id_pedido (PK)</text><text x="10" y="60" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text152-5">numero_pedido</text><text x="10" y="75" fill="#2c3e50"
+               font-family="Arial" font-size="10px" id="text153-9">cliente_id
                (FK)</text><text x="10" y="90" fill="#2c3e50" font-family="Arial" font-size="10px"
                id="text154-1">usuario_id (FK)</text><text x="10" y="105" fill="#2c3e50" font-family="Arial"
                font-size="10px" id="text155-0">estado</text>
          </g>
          <g transform="matrix(0.26458333,0,0,0.26458333,-4588.1163,1156.2483)" id="g161">
-            <use href="#entity" id="use155" /><text x="80" y="20" text-anchor="middle" fill="#ffffff"
-               font-family="Arial" font-size="12px" font-weight="bold" id="text156-8">PEDIDO_DETALLES</text><text x="10"
-               y="45" fill="#2c3e50" font-family="Arial" font-size="10px" id="text157-5">id_detalle (PK)</text><text
-               x="10" y="60" fill="#2c3e50" font-family="Arial" font-size="10px" id="text158-0">pedido_id
+            <use href="#entity" id="use155" transform="translate(4968.0581,-1097.173)" /><text x="80" y="20"
+               text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="12px" font-weight="bold"
+               id="text156-8">PEDIDO_DETALLES</text><text x="10" y="45" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text157-5">id_detalle (PK)</text><text x="10" y="60" fill="#2c3e50"
+               font-family="Arial" font-size="10px" id="text158-0">pedido_id
                (FK)</text><text x="10" y="75" fill="#2c3e50" font-family="Arial" font-size="10px"
                id="text159-7">producto_id (FK)</text><text x="10" y="90" fill="#2c3e50" font-family="Arial"
                font-size="10px" id="text160-9">cantidad</text><text x="10" y="105" fill="#2c3e50" font-family="Arial"
                font-size="10px" id="text161-0">precio_unitario</text>
          </g>
          <g transform="matrix(0.26458333,0,0,0.26458333,-4482.283,1156.2483)" id="g167">
-            <use href="#entity" id="use161" /><text x="80" y="20" text-anchor="middle" fill="#ffffff"
-               font-family="Arial" font-size="12px" font-weight="bold" id="text162-5">PAGOS</text><text x="10" y="45"
-               fill="#2c3e50" font-family="Arial" font-size="10px" id="text163-3">id_pago (PK)</text><text x="10" y="60"
-               fill="#2c3e50" font-family="Arial" font-size="10px" id="text164-4">pedido_id (FK)</text><text x="10"
-               y="75" fill="#2c3e50" font-family="Arial" font-size="10px" id="text165-1">cliente_id (FK)</text><text
-               x="10" y="90" fill="#2c3e50" font-family="Arial" font-size="10px" id="text166-0">monto</text><text x="10"
-               y="105" fill="#2c3e50" font-family="Arial" font-size="10px" id="text167-4">metodo_pago</text>
+            <use href="#entity" id="use161" transform="translate(4968.0581,-1097.173)" /><text x="80" y="20"
+               text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="12px" font-weight="bold"
+               id="text162-5">PAGOS</text><text x="10" y="45" fill="#2c3e50" font-family="Arial" font-size="10px"
+               id="text163-3">id_pago (PK)</text><text x="10" y="60" fill="#2c3e50" font-family="Arial" font-size="10px"
+               id="text164-4">pedido_id (FK)</text><text x="10" y="75" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text165-1">cliente_id (FK)</text><text x="10" y="90" fill="#2c3e50"
+               font-family="Arial" font-size="10px" id="text166-0">monto</text><text x="10" y="105" fill="#2c3e50"
+               font-family="Arial" font-size="10px" id="text167-4">metodo_pago</text>
          </g>
          <g transform="matrix(0.26458333,0,0,0.26458333,-4773.3247,1222.3942)" id="g173">
-            <use href="#entity" id="use167" /><text x="80" y="20" text-anchor="middle" fill="#ffffff"
-               font-family="Arial" font-size="12px" font-weight="bold" id="text168-8">MOV_INVENTARIO</text><text x="10"
-               y="45" fill="#2c3e50" font-family="Arial" font-size="10px" id="text169-5">id_movimiento (PK)</text><text
-               x="10" y="60" fill="#2c3e50" font-family="Arial" font-size="10px" id="text170-9">producto_id
+            <use href="#entity" id="use167" transform="translate(4968.0581,-1097.173)" /><text x="80" y="20"
+               text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="12px" font-weight="bold"
+               id="text168-8">MOV_INVENTARIO</text><text x="10" y="45" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text169-5">id_movimiento (PK)</text><text x="10" y="60" fill="#2c3e50"
+               font-family="Arial" font-size="10px" id="text170-9">producto_id
                (FK)</text><text x="10" y="75" fill="#2c3e50" font-family="Arial" font-size="10px"
                id="text171">tipo_movimiento</text><text x="10" y="90" fill="#2c3e50" font-family="Arial"
                font-size="10px" id="text172-2">cantidad</text><text x="10" y="105" fill="#2c3e50" font-family="Arial"
                font-size="10px" id="text173-5">usuario_id (FK)</text>
          </g>
          <g transform="matrix(0.26458333,0,0,0.26458333,-4693.9497,1222.3942)" id="g179">
-            <use href="#entity" id="use173-4" /><text x="80" y="20" text-anchor="middle" fill="#ffffff"
-               font-family="Arial" font-size="12px" font-weight="bold" id="text174-1">COMPRAS</text><text x="10" y="45"
-               fill="#2c3e50" font-family="Arial" font-size="10px" id="text175-3">id_compra (PK)</text><text x="10"
-               y="60" fill="#2c3e50" font-family="Arial" font-size="10px" id="text176-9">numero_compra</text><text
-               x="10" y="75" fill="#2c3e50" font-family="Arial" font-size="10px" id="text177-5">proveedor_id
+            <use href="#entity" id="use173-4" transform="translate(4968.0581,-1097.173)" /><text x="80" y="20"
+               text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="12px" font-weight="bold"
+               id="text174-1">COMPRAS</text><text x="10" y="45" fill="#2c3e50" font-family="Arial" font-size="10px"
+               id="text175-3">id_compra (PK)</text><text x="10" y="60" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text176-9">numero_compra</text><text x="10" y="75" fill="#2c3e50"
+               font-family="Arial" font-size="10px" id="text177-5">proveedor_id
                (FK)</text><text x="10" y="90" fill="#2c3e50" font-family="Arial" font-size="10px"
                id="text178-8">usuario_id (FK)</text><text x="10" y="105" fill="#2c3e50" font-family="Arial"
                font-size="10px" id="text179-2">estado</text>
          </g>
          <g transform="matrix(0.26458333,0,0,0.26458333,-4614.5747,1222.3942)" id="g185">
-            <use href="#entity" id="use179" /><text x="80" y="20" text-anchor="middle" fill="#ffffff"
-               font-family="Arial" font-size="12px" font-weight="bold" id="text180-7">COMPRA_DETALLES</text><text x="10"
-               y="45" fill="#2c3e50" font-family="Arial" font-size="10px" id="text181-9">id_detalle (PK)</text><text
-               x="10" y="60" fill="#2c3e50" font-family="Arial" font-size="10px" id="text182-6">compra_id
+            <use href="#entity" id="use179" transform="translate(4968.0581,-1097.173)" /><text x="80" y="20"
+               text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="12px" font-weight="bold"
+               id="text180-7">COMPRA_DETALLES</text><text x="10" y="45" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text181-9">id_detalle (PK)</text><text x="10" y="60" fill="#2c3e50"
+               font-family="Arial" font-size="10px" id="text182-6">compra_id
                (FK)</text><text x="10" y="75" fill="#2c3e50" font-family="Arial" font-size="10px"
                id="text183-1">producto_id (FK)</text><text x="10" y="90" fill="#2c3e50" font-family="Arial"
                font-size="10px" id="text184-7">cantidad_pedida</text><text x="10" y="105" fill="#2c3e50"
                font-family="Arial" font-size="10px" id="text185-7">precio_unitario</text>
          </g>
          <g transform="matrix(0.26458333,0,0,0.26458333,-4535.1997,1222.3942)" id="g191">
-            <use href="#entity" id="use185" /><text x="80" y="20" text-anchor="middle" fill="#ffffff"
-               font-family="Arial" font-size="12px" font-weight="bold" id="text186-1">CONFIGURACION</text><text x="10"
-               y="45" fill="#2c3e50" font-family="Arial" font-size="10px" id="text187-9">id_config (PK)</text><text
-               x="10" y="60" fill="#2c3e50" font-family="Arial" font-size="10px" id="text188-0">clave</text><text x="10"
-               y="75" fill="#2c3e50" font-family="Arial" font-size="10px" id="text189-3">valor</text><text x="10" y="90"
-               fill="#2c3e50" font-family="Arial" font-size="10px" id="text190-4">descripcion</text><text x="10" y="105"
-               fill="#2c3e50" font-family="Arial" font-size="10px" id="text191-1">tipo</text>
+            <use href="#entity" id="use185" transform="translate(4968.0581,-1097.173)" /><text x="80" y="20"
+               text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="12px" font-weight="bold"
+               id="text186-1">CONFIGURACION</text><text x="10" y="45" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text187-9">id_config (PK)</text><text x="10" y="60" fill="#2c3e50"
+               font-family="Arial" font-size="10px" id="text188-0">clave</text><text x="10" y="75" fill="#2c3e50"
+               font-family="Arial" font-size="10px" id="text189-3">valor</text><text x="10" y="90" fill="#2c3e50"
+               font-family="Arial" font-size="10px" id="text190-4">descripcion</text><text x="10" y="105" fill="#2c3e50"
+               font-family="Arial" font-size="10px" id="text191-1">tipo</text>
          </g>
          <g transform="matrix(0.26458333,0,0,0.26458333,-4455.8247,1222.3942)" id="g197-7">
-            <use href="#entity" id="use191" /><text x="80" y="20" text-anchor="middle" fill="#ffffff"
-               font-family="Arial" font-size="12px" font-weight="bold" id="text192-5">LOG_ACTIVIDADES</text><text x="10"
-               y="45" fill="#2c3e50" font-family="Arial" font-size="10px" id="text193-3">id_log (PK)</text><text x="10"
-               y="60" fill="#2c3e50" font-family="Arial" font-size="10px" id="text194-3">usuario_id (FK)</text><text
-               x="10" y="75" fill="#2c3e50" font-family="Arial" font-size="10px" id="text195-2">accion</text><text
-               x="10" y="90" fill="#2c3e50" font-family="Arial" font-size="10px"
-               id="text196-4">tabla_afectada</text><text x="10" y="105" fill="#2c3e50" font-family="Arial"
-               font-size="10px" id="text197">fecha_accion</text>
+            <use href="#entity" id="use191" transform="translate(4968.0581,-1097.173)" /><text x="80" y="20"
+               text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="12px" font-weight="bold"
+               id="text192-5">LOG_ACTIVIDADES</text><text x="10" y="45" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text193-3">id_log (PK)</text><text x="10" y="60" fill="#2c3e50" font-family="Arial"
+               font-size="10px" id="text194-3">usuario_id (FK)</text><text x="10" y="75" fill="#2c3e50"
+               font-family="Arial" font-size="10px" id="text195-2">accion</text><text x="10" y="90" fill="#2c3e50"
+               font-family="Arial" font-size="10px" id="text196-4">tabla_afectada</text><text x="10" y="105"
+               fill="#2c3e50" font-family="Arial" font-size="10px" id="text197">fecha_accion</text>
          </g>
          <g id="relationships" stroke="#dc3545" stroke-width="2" fill="none"
             transform="matrix(0.26458333,0,0,0.26458333,-4799.783,1050.415)">

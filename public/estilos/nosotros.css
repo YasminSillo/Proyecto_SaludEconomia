@@ -1768,3 +1768,54 @@
         transition: none;
     }
 }
+
+/* Estilos para la linea de tiempo horizontal */
+.about-timeline.horizontal-timeline {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 2rem;
+    position: relative;
+    border-top: 3px solid;
+    border-image: linear-gradient(90deg, #00d4aa 0%, #2c5aa0 100%) 1;
+}
+
+.horizontal-timeline .about-timeline__item {
+    flex: 0 0 250px; /* Ancho de cada item */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 2rem;
+}
+
+.horizontal-timeline .about-timeline__marker {
+    order: 1;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.horizontal-timeline .about-timeline__dot {
+    position: absolute;
+    top: -12px; /* Ajusta la posicion vertical del punto */
+}
+
+.horizontal-timeline .about-timeline__year {
+    order: 2;
+    margin-top: 1rem;
+}
+
+.horizontal-timeline .about-timeline__content {
+    order: 3;
+    width: 100%;
+    padding: 1rem;
+}
+
+.horizontal-timeline .about-timeline__card {
+    text-align: center;
+}
+
+.horizontal-timeline::before {
+    content: none;
+}

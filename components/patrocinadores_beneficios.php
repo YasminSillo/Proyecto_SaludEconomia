@@ -1,4 +1,5 @@
 <!-- Seccion de Beneficios de Ser Patrocinador -->
+<!--
 <section class="sponsors-benefits">
     <div class="sponsors-benefits-container">
         <div class="sponsors-benefits-header">
@@ -13,7 +14,7 @@
         </div>
 
         <div class="benefits-grid">
-            <!-- Beneficio 1: Distribucion Nacional -->
+            
             <div class="benefit-item">
                 <div class="benefit-icon-wrapper">
                     <div class="benefit-icon">
@@ -34,7 +35,7 @@
                 </div>
             </div>
 
-            <!-- Beneficio 2: Marketing y Promocion -->
+            
             <div class="benefit-item">
                 <div class="benefit-icon-wrapper">
                     <div class="benefit-icon">
@@ -55,7 +56,7 @@
                 </div>
             </div>
 
-            <!-- Beneficio 3: Soporte Tecnico -->
+            
             <div class="benefit-item">
                 <div class="benefit-icon-wrapper">
                     <div class="benefit-icon">
@@ -76,7 +77,7 @@
                 </div>
             </div>
 
-            <!-- Beneficio 4: Reportes y Analytics -->
+            
             <div class="benefit-item">
                 <div class="benefit-icon-wrapper">
                     <div class="benefit-icon">
@@ -97,7 +98,7 @@
                 </div>
             </div>
 
-            <!-- Beneficio 5: Cadena de Frio -->
+            
             <div class="benefit-item">
                 <div class="benefit-icon-wrapper">
                     <div class="benefit-icon">
@@ -118,7 +119,7 @@
                 </div>
             </div>
 
-            <!-- Beneficio 6: Cumplimiento Regulatorio -->
+            
             <div class="benefit-item">
                 <div class="benefit-icon-wrapper">
                     <div class="benefit-icon">
@@ -140,7 +141,7 @@
             </div>
         </div>
 
-        <!-- Seccion de numeros/estadisticas -->
+        
         <div class="benefits-stats">
             <div class="benefits-stats-header">
                 <h3 class="benefits-stats-title">Nuestro Impacto en Numeros</h3>
@@ -169,7 +170,7 @@
             </div>
         </div>
 
-        <!-- Call to Action -->
+        
         <div class="benefits-cta">
             <div class="benefits-cta-content">
                 <h3 class="benefits-cta-title">¿Listo para Formar Parte de Nuestra Red?</h3>
@@ -196,3 +197,4 @@
         </div>
     </div>
 </section>
+-->

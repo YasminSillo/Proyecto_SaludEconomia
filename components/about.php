@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="about__intro-image">
-                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Equipo profesional de Salud y Economía Distribuciones" />
+                <img src="https://www.asefarma.com/wp-content/uploads/2020/09/almacen-farmacia-300x192.jpg" />
             </div>
         </div>
     </div>
@@ -57,7 +57,7 @@
             </div>
             <div class="about__section-media">
                 <iframe class="about__video" 
-                        src="https://www.youtube.com/embed/QOEMv0S8AcA?autoplay=1&mute=1&loop=1&playlist=QOEMv0S8AcA&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                        src="https://www.youtube.com/embed/vdPF8inIn3o?si=nWKC6SylfzMhPG36" 
                         title="Misión - Compromiso con la Salud"
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -142,7 +142,7 @@
             </div>
             <div class="about__section-media">
                 <iframe class="about__video" 
-                        src="https://www.youtube.com/embed/fLeJJPxua3E?autoplay=1&mute=1&loop=1&playlist=fLeJJPxua3E&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                        src="https://www.youtube.com/embed/PI10UTSKit0?si=mqge1Ax7QRB2LLJC" 
                         title="Trayectoria - Crecimiento Constante"
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 

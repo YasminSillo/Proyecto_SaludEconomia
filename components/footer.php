@@ -48,11 +48,11 @@
                 </div>
                 <div class="footer__contact-item">
                     <i class="fas fa-phone footer__contact-icon"></i>
-                    <span>+51 999 999 999</span>
+                    <span>+51 963 388 387</span>
                 </div>
                 <div class="footer__contact-item">
                     <i class="fas fa-envelope footer__contact-icon"></i>
-                    <span>info@saludeconomia.pe</span>
+                    <span>saludEconomia@gmail.com</span>
                 </div>
             </div>
             

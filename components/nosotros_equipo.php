@@ -13,6 +13,7 @@
         </div>
 
         <!-- Equipo Directivo -->
+        <!--
         <div class="about-team__leadership">
             <div class="about-team__member">
                 <div class="about-team__member-photo">
@@ -121,8 +122,10 @@
                 </div>
             </div>
         </div>
+        -->
 
         <!-- Departamentos y Areas -->
+        <!--
         <div class="about-team__departments">
             <div class="about-team__departments-header">
                 <h3 class="about-team__departments-title">Nuestros Departamentos</h3>
@@ -271,8 +274,10 @@
                 </div>
             </div>
         </div>
+        -->
 
         <!-- Cultura Organizacional -->
+        <!--
         <div class="about-team__culture">
             <div class="about-team__culture-header">
                 <h3 class="about-team__culture-title">Nuestra Cultura Organizacional</h3>
@@ -327,6 +332,7 @@
                 </div>
             </div>
         </div>
+        -->
 
         <!-- Call to Action -->
         <div class="about-team__cta">

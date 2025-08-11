@@ -1,8 +1,9 @@
 <!-- Seccion de Contacto para Ser Patrocinador -->
+<!--
 <section class="sponsors-contact" id="sponsors-contact">
     <div class="sponsors-contact-container">
         <div class="sponsors-contact-content">
-            <!-- Informacion de contacto -->
+            
             <div class="contact-info">
                 <div class="contact-info-header">
                     <h2 class="contact-info-title">
@@ -70,7 +71,7 @@
                 </div>
             </div>
 
-            <!-- Formulario de contacto -->
+            
             <div class="contact-form-wrapper">
                 <form class="contact-form" action="#" method="POST">
                     <div class="contact-form-header">
@@ -228,7 +229,7 @@
             </div>
         </div>
 
-        <!-- Seccion de pasos siguientes -->
+        
         <div class="next-steps">
             <div class="next-steps-header">
                 <h3 class="next-steps-title">¿Que Pasa Despues?</h3>
@@ -271,3 +272,4 @@
         </div>
     </div>
 </section>
+-->

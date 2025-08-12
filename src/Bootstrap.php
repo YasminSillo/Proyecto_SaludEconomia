@@ -30,12 +30,21 @@ require_once __DIR__ . '/Infrastructure/Repository/ProductoRepository.php';
 require_once __DIR__ . '/Infrastructure/Repository/CategoriaRepository.php';
 require_once __DIR__ . '/Infrastructure/Repository/ProveedorRepository.php';
 require_once __DIR__ . '/Infrastructure/Repository/ImagenRepository.php';
+require_once __DIR__ . '/Infrastructure/Repository/PedidoRepository.php';
+require_once __DIR__ . '/Infrastructure/Repository/CompraRepository.php';
+require_once __DIR__ . '/Infrastructure/Repository/PagoRepository.php';
 
 require_once __DIR__ . '/Application/UseCase/CrearUsuarioUseCase.php';
 require_once __DIR__ . '/Application/UseCase/AutenticarUsuarioUseCase.php';
 require_once __DIR__ . '/Application/UseCase/CrearClienteUseCase.php';
 require_once __DIR__ . '/Application/UseCase/ObtenerProductosUseCase.php';
 require_once __DIR__ . '/Application/UseCase/CrearProductoUseCase.php';
+require_once __DIR__ . '/Application/UseCase/CrearCategoriaUseCase.php';
+require_once __DIR__ . '/Application/UseCase/CrearProveedorUseCase.php';
+require_once __DIR__ . '/Application/UseCase/ObtenerPedidosUseCase.php';
+require_once __DIR__ . '/Application/UseCase/ObtenerInventarioUseCase.php';
+require_once __DIR__ . '/Application/UseCase/ObtenerComprasUseCase.php';
+require_once __DIR__ . '/Application/UseCase/ObtenerPagosUseCase.php';
 
 class Bootstrap
 {
@@ -56,12 +65,21 @@ class Bootstrap
         $this->container['categoriaRepository'] = new CategoriaRepository($this->container['db']);
         $this->container['proveedorRepository'] = new ProveedorRepository($this->container['db']);
         $this->container['imagenRepository'] = new ImagenRepository();
+        $this->container['pedidoRepository'] = new PedidoRepository($this->container['db']);
+        $this->container['compraRepository'] = new CompraRepository($this->container['db']);
+        $this->container['pagoRepository'] = new PagoRepository($this->container['db']);
         
         $this->container['crearUsuarioUseCase'] = new CrearUsuarioUseCase($this->container['usuarioRepository']);
         $this->container['autenticarUsuarioUseCase'] = new AutenticarUsuarioUseCase($this->container['usuarioRepository']);
         $this->container['crearClienteUseCase'] = new CrearClienteUseCase($this->container['clienteRepository']);
         $this->container['obtenerProductosUseCase'] = new ObtenerProductosUseCase($this->container['productoRepository'], $this->container['categoriaRepository']);
         $this->container['crearProductoUseCase'] = new CrearProductoUseCase($this->container['productoRepository'], $this->container['imagenRepository']);
+        $this->container['crearCategoriaUseCase'] = new CrearCategoriaUseCase($this->container['categoriaRepository']);
+        $this->container['crearProveedorUseCase'] = new CrearProveedorUseCase($this->container['proveedorRepository']);
+        $this->container['obtenerPedidosUseCase'] = new ObtenerPedidosUseCase($this->container['pedidoRepository']);
+        $this->container['obtenerInventarioUseCase'] = new ObtenerInventarioUseCase($this->container['productoRepository']);
+        $this->container['obtenerComprasUseCase'] = new ObtenerComprasUseCase($this->container['compraRepository']);
+        $this->container['obtenerPagosUseCase'] = new ObtenerPagosUseCase($this->container['pagoRepository']);
     }
 
     public function get($service)
@@ -120,5 +138,50 @@ class Bootstrap
     public function getCrearProductoUseCase()
     {
         return $this->get('crearProductoUseCase');
+    }
+
+    public function getCrearCategoriaUseCase()
+    {
+        return $this->get('crearCategoriaUseCase');
+    }
+
+    public function getCrearProveedorUseCase()
+    {
+        return $this->get('crearProveedorUseCase');
+    }
+
+    public function getPedidoRepository()
+    {
+        return $this->get('pedidoRepository');
+    }
+
+    public function getObtenerPedidosUseCase()
+    {
+        return $this->get('obtenerPedidosUseCase');
+    }
+
+    public function getObtenerInventarioUseCase()
+    {
+        return $this->get('obtenerInventarioUseCase');
+    }
+
+    public function getCompraRepository()
+    {
+        return $this->get('compraRepository');
+    }
+
+    public function getObtenerComprasUseCase()
+    {
+        return $this->get('obtenerComprasUseCase');
+    }
+
+    public function getPagoRepository()
+    {
+        return $this->get('pagoRepository');
+    }
+
+    public function getObtenerPagosUseCase()
+    {
+        return $this->get('obtenerPagosUseCase');
     }
 }

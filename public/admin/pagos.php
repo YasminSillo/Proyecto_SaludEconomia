@@ -4,6 +4,17 @@ require_once __DIR__ . '/auth_check.php';
 
 $bootstrap = new Bootstrap();
 
+// Obtener filtros
+$filtros = [];
+if (!empty($_GET['metodo'])) {
+    $filtros['metodo'] = $_GET['metodo'];
+}
+
+// Obtener pagos de la base de datos
+$obtenerPagosUseCase = $bootstrap->getObtenerPagosUseCase();
+$pagos = $obtenerPagosUseCase->ejecutar($filtros);
+$resumenDiario = $obtenerPagosUseCase->obtenerResumenDiario();
+
 $title = 'Gestión de Pagos';
 ?>
 

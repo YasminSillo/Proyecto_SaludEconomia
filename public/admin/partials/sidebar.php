@@ -14,70 +14,70 @@
     <nav class="sidebar-nav">
         <ul>
             <li class="nav-item">
-                <a href="index.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">
+                <a href="/admin/index.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">
                     <i class="icon-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             
             <li class="nav-item">
-                <a href="usuarios.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'usuarios.php' ? 'active' : ''; ?>">
+                <a href="/admin/usuarios.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'usuarios.php' ? 'active' : ''; ?>">
                     <i class="icon-users"></i>
                     <span>Usuarios</span>
                 </a>
             </li>
             
             <li class="nav-item">
-                <a href="clientes.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'clientes.php' ? 'active' : ''; ?>">
+                <a href="/admin/clientes.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'clientes.php' ? 'active' : ''; ?>">
                     <i class="icon-clients"></i>
                     <span>Clientes</span>
                 </a>
             </li>
             
             <li class="nav-item">
-                <a href="productos.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'productos.php' ? 'active' : ''; ?>">
+                <a href="/admin/productos.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'productos.php' ? 'active' : ''; ?>">
                     <i class="icon-products"></i>
                     <span>Productos</span>
                 </a>
             </li>
             
             <li class="nav-item">
-                <a href="categorias.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'categorias.php' ? 'active' : ''; ?>">
+                <a href="/admin/categorias.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'categorias.php' ? 'active' : ''; ?>">
                     <i class="icon-categories"></i>
                     <span>Categorías</span>
                 </a>
             </li>
             
             <li class="nav-item">
-                <a href="proveedores.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'proveedores.php' ? 'active' : ''; ?>">
+                <a href="/admin/proveedores.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'proveedores.php' ? 'active' : ''; ?>">
                     <i class="icon-suppliers"></i>
                     <span>Proveedores</span>
                 </a>
             </li>
             
             <li class="nav-item">
-                <a href="pedidos.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'pedidos.php' ? 'active' : ''; ?>">
+                <a href="/admin/pedidos.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'pedidos.php' ? 'active' : ''; ?>">
                     <i class="icon-orders"></i>
                     <span>Pedidos</span>
                 </a>
             </li>
             
             <li class="nav-item">
-                <a href="inventario.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'inventario.php' ? 'active' : ''; ?>">
+                <a href="/admin/inventario.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'inventario.php' ? 'active' : ''; ?>">
                     <i class="icon-inventory"></i>
                     <span>Inventario</span>
                 </a>
             </li>
             
             <li class="nav-item">
-                <a href="compras.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'compras.php' ? 'active' : ''; ?>">
+                <a href="/admin/compras.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'compras.php' ? 'active' : ''; ?>">
                     <i class="icon-purchases"></i>
                     <span>Compras</span>
                 </a>
             </li>
             
             <li class="nav-item">
-                <a href="pagos.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'pagos.php' ? 'active' : ''; ?>">
+                <a href="/admin/pagos.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'pagos.php' ? 'active' : ''; ?>">
                     <i class="icon-payments"></i>
                     <span>Pagos</span>
                 </a>

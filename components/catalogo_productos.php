@@ -18,7 +18,7 @@
         <div class="card__img" style="overflow: hidden; display: flex; align-items: center; justify-content: center;">
           <?php 
           $rutaImagen = '/imagenes/no-image.svg'; // Por defecto
-          if ($producto->tieneImagen()) {
+          if ($producto->getImagen()) {
               $rutaImagen = '/imagenes/productos/' . $producto->getImagen();
           }
           ?>

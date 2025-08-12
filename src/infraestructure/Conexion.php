@@ -6,11 +6,16 @@ $usuario = "root";
 $contrasena = "";
 
 try {
-    // Crear conexión PDO
-    $conexion = new PDO("mysql:host=$host;dbname=$base_datos;charset=utf8", $usuario, $contrasena);
+    // Crear conexión PDO con opciones mejoradas
+    $opciones = [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_PERSISTENT => false,
+        PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
+        PDO::ATTR_TIMEOUT => 30
+    ];
     
-    // Configurar errores
-    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conexion = new PDO("mysql:host=$host;dbname=$base_datos;charset=utf8", $usuario, $contrasena, $opciones);
 
     // Ejemplo de consulta
     // $stmt = $conexion->query("SELECT * FROM usuarios");

@@ -6,7 +6,7 @@ class ImagenRepository implements ImagenRepositoryInterface
     private $extensionesPermitidas;
     private $tamanoMaximo;
 
-    public function __construct($directorioBase = '/public/imagenes/')
+    public function __construct($directorioBase = 'imagenes/')
     {
         $this->directorioBase = rtrim($directorioBase, '/') . '/';
         $this->extensionesPermitidas = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
@@ -22,7 +22,7 @@ class ImagenRepository implements ImagenRepositoryInterface
         }
 
         // Crear directorio si no existe
-        $rutaDirectorio = $_SERVER['DOCUMENT_ROOT'] . $this->directorioBase . $directorio;
+        $rutaDirectorio = __DIR__ . '/../../../public/' . $this->directorioBase . $directorio;
         if (!is_dir($rutaDirectorio)) {
             if (!mkdir($rutaDirectorio, 0755, true)) {
                 throw new Exception('No se pudo crear el directorio de imágenes');
@@ -39,8 +39,10 @@ class ImagenRepository implements ImagenRepositoryInterface
             throw new Exception('Error al subir la imagen');
         }
 
-        // Redimensionar si es necesario
-        $this->redimensionarImagen($rutaCompleta, $rutaCompleta, 800, 600);
+        // Redimensionar si es necesario (solo si GD está disponible)
+        if ($this->gdDisponible()) {
+            $this->redimensionarImagen($rutaCompleta, $rutaCompleta, 800, 600);
+        }
 
         return $nombreArchivo;
     }
@@ -51,7 +53,7 @@ class ImagenRepository implements ImagenRepositoryInterface
             return true;
         }
 
-        $rutaCompleta = $_SERVER['DOCUMENT_ROOT'] . $this->directorioBase . $rutaImagen;
+        $rutaCompleta = __DIR__ . '/../../../public/' . $this->directorioBase . $rutaImagen;
         
         if (file_exists($rutaCompleta)) {
             return unlink($rutaCompleta);
@@ -63,10 +65,10 @@ class ImagenRepository implements ImagenRepositoryInterface
     public function obtenerRutaImagen($nombreImagen, $directorio = 'productos')
     {
         if (empty($nombreImagen)) {
-            return $this->directorioBase . 'no-image.png'; // Imagen por defecto
+            return '/' . $this->directorioBase . 'no-image.png'; // Imagen por defecto
         }
 
-        return $this->directorioBase . $directorio . '/' . $nombreImagen;
+        return '/' . $this->directorioBase . $directorio . '/' . $nombreImagen;
     }
 
     public function validarImagen($archivo)
@@ -93,17 +95,28 @@ class ImagenRepository implements ImagenRepositoryInterface
             return 'Extensión de archivo no permitida';
         }
 
-        // Verificar que es una imagen real
-        $infoImagen = getimagesize($archivo['tmp_name']);
-        if ($infoImagen === false) {
-            return 'El archivo no es una imagen válida';
+        // Verificar que es una imagen real (solo si GD está disponible)
+        if ($this->gdDisponible()) {
+            $infoImagen = getimagesize($archivo['tmp_name']);
+            if ($infoImagen === false) {
+                return 'El archivo no es una imagen válida';
+            }
         }
 
         return true;
     }
 
+    private function gdDisponible()
+    {
+        return extension_loaded('gd') && function_exists('imagecreatetruecolor');
+    }
+
     public function redimensionarImagen($rutaOrigen, $rutaDestino, $ancho, $alto)
     {
+        // Verificar que GD esté disponible
+        if (!$this->gdDisponible()) {
+            return false;
+        }
         $infoImagen = getimagesize($rutaOrigen);
         if (!$infoImagen) {
             return false;

@@ -39,12 +39,18 @@ class ProveedorRepository implements ProveedorRepositoryInterface
     {
         $sql = "INSERT INTO proveedores (nombre_empresa, contacto_nombre, email, ruc) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($sql);
-        return $stmt->execute([
+        $success = $stmt->execute([
             $proveedor->getNombreEmpresa(),
             $proveedor->getContactoNombre(),
             $proveedor->getEmail(),
             $proveedor->getRuc()
         ]);
+        
+        if ($success) {
+            return $this->db->lastInsertId();
+        }
+        
+        return false;
     }
 
     public function actualizar(Proveedor $proveedor)

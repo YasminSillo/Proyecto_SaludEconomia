@@ -26,12 +26,18 @@ class CategoriaRepository implements CategoriaRepositoryInterface
     {
         $sql = "INSERT INTO categorias (nombre, descripcion, parent_id, activo) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($sql);
-        return $stmt->execute([
+        $success = $stmt->execute([
             $categoria->getNombre(),
             $categoria->getDescripcion(),
             $categoria->getParentId(),
             $categoria->getActivo() ? 1 : 0
         ]);
+        
+        if ($success) {
+            return $this->db->lastInsertId();
+        }
+        
+        return false;
     }
 
     public function actualizar(Categoria $categoria)

@@ -8,14 +8,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainContent = document.querySelector('.main-content');
     
     if (sidebarToggle && sidebar) {
-        sidebarToggle.addEventListener('click', function() {
-            sidebar.classList.toggle('collapsed');
-            localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
+        // Función para manejar el toggle
+        function toggleSidebar() {
+            if (window.innerWidth <= 1024) {
+                // En móvil: toggle clase 'open'
+                sidebar.classList.toggle('open');
+            } else {
+                // En escritorio: toggle clase 'collapsed'
+                sidebar.classList.toggle('collapsed');
+                localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
+            }
+        }
+        
+        // Event listener único para el toggle
+        sidebarToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleSidebar();
         });
         
-        // Restaurar estado del sidebar
+        // Restaurar estado del sidebar en escritorio
         const sidebarCollapsed = localStorage.getItem('sidebarCollapsed');
-        if (sidebarCollapsed === 'true') {
+        if (sidebarCollapsed === 'true' && window.innerWidth > 1024) {
             sidebar.classList.add('collapsed');
         }
         
@@ -24,27 +38,30 @@ document.addEventListener('DOMContentLoaded', function() {
             if (window.innerWidth <= 1024) {
                 sidebar.classList.remove('collapsed');
                 sidebar.classList.remove('open');
+            } else {
+                sidebar.classList.remove('open');
+                // Restaurar estado collapsed en escritorio
+                const sidebarCollapsed = localStorage.getItem('sidebarCollapsed');
+                if (sidebarCollapsed === 'true') {
+                    sidebar.classList.add('collapsed');
+                } else {
+                    sidebar.classList.remove('collapsed');
+                }
             }
         }
         
         window.addEventListener('resize', handleResize);
         handleResize();
         
-        // Toggle en móvil
-        if (window.innerWidth <= 1024) {
-            sidebarToggle.addEventListener('click', function() {
-                sidebar.classList.toggle('open');
-            });
-            
-            // Cerrar sidebar al hacer click fuera
-            document.addEventListener('click', function(e) {
-                if (window.innerWidth <= 1024 && 
-                    !sidebar.contains(e.target) && 
-                    !sidebarToggle.contains(e.target)) {
-                    sidebar.classList.remove('open');
-                }
-            });
-        }
+        // Cerrar sidebar en móvil al hacer click fuera
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 1024 && 
+                sidebar.classList.contains('open') &&
+                !sidebar.contains(e.target) && 
+                !sidebarToggle.contains(e.target)) {
+                sidebar.classList.remove('open');
+            }
+        });
     }
     
     // ===== ALERTS AUTO CLOSE =====

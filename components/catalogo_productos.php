@@ -57,6 +57,9 @@
           <div class="card__stock">Disponible</div>
         </div>
         <div class="card__footer">
+          <a href="producto.php?id=<?php echo $producto->getId(); ?>" class="card__btn card__btn--secondary">
+            Ver Detalles
+          </a>
           <button class="card__btn" onclick="contactarVenta('<?php echo htmlspecialchars($producto->getNombre()); ?>')">
             Consultar
           </button>

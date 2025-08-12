@@ -80,6 +80,9 @@
 .card__footer{
   padding:.75rem .9rem 1rem;
   margin-top:auto;               /* empuja al fondo */
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
 }
 
 .card__btn{
@@ -93,6 +96,9 @@
   background:var(--clr-btn);
   cursor:pointer;
   transition:background .2s;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
 }
 
 .card__btn:hover{background:var(--clr-btn-hover);}
@@ -101,6 +107,25 @@
   background:var(--clr-btn-disabled);
   color:#6d7280;
   cursor:not-allowed;
+}
+
+.card__btn--secondary {
+  background: #6c757d;
+  color: #fff;
+}
+
+.card__btn--secondary:hover {
+  background: #5a6268;
+}
+
+@media (min-width: 768px) {
+  .card__footer {
+    flex-direction: row;
+  }
+  
+  .card__btn {
+    flex: 1;
+  }
 }
 
 

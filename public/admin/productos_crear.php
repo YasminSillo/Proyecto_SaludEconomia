@@ -20,11 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             throw new Exception("SKU, nombre, categoría y proveedor son requeridos");
         }
 
-        // Crear producto con imagen
+        // Crear producto con imágenes múltiples
         $crearProductoUseCase = $bootstrap->getCrearProductoUseCase();
-        $archivoImagen = isset($_FILES['imagen']) ? $_FILES['imagen'] : null;
+        $archivosImagenes = isset($_FILES['imagenes']) ? $_FILES['imagenes'] : null;
+        $imagenPrincipal = isset($_POST['imagen_principal']) ? intval($_POST['imagen_principal']) : 0;
         
-        $crearProductoUseCase->ejecutar($datos, $archivoImagen);
+        $crearProductoUseCase->ejecutar($datos, $archivosImagenes, $imagenPrincipal);
 
         header('Location: productos.php?success=Producto creado exitosamente');
         exit;
@@ -146,13 +147,15 @@ $title = 'Crear Producto';
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="imagen">Imagen del Producto</label>
+                    <label class="form-label" for="imagenes">Imágenes del Producto</label>
                     <input type="file" 
-                           id="imagen" 
-                           name="imagen" 
+                           id="imagenes" 
+                           name="imagenes[]" 
                            class="form-control" 
-                           accept="image/*">
-                    <small class="form-text">Formatos permitidos: JPG, PNG, GIF, WEBP. Máximo 5MB</small>
+                           accept="image/*"
+                           multiple>
+                    <small class="form-text">Selecciona múltiples imágenes. Formatos: JPG, PNG, GIF, WEBP. Máximo 5MB por imagen</small>
+                    <div id="imagePreview" class="image-preview-container" style="margin-top: 1rem;"></div>
                 </div>
             </div>
 
@@ -179,28 +182,163 @@ $title = 'Crear Producto';
 </main>
 
 <script>
-// Preview de imagen
-document.getElementById('imagen').addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (file) {
+// Preview de imágenes múltiples
+document.getElementById('imagenes').addEventListener('change', function(e) {
+    const files = Array.from(e.target.files);
+    const previewContainer = document.getElementById('imagePreview');
+    previewContainer.innerHTML = '';
+    
+    if (files.length === 0) return;
+    
+    // Validar número máximo de archivos
+    if (files.length > 10) {
+        alert('Máximo 10 imágenes permitidas');
+        this.value = '';
+        return;
+    }
+    
+    let validFiles = [];
+    
+    files.forEach((file, index) => {
         // Validar tamaño
         if (file.size > 5 * 1024 * 1024) {
-            alert('El archivo es demasiado grande. Máximo 5MB');
-            this.value = '';
+            alert(`La imagen "${file.name}" es demasiado grande. Máximo 5MB por imagen`);
             return;
         }
         
         // Validar tipo
         if (!file.type.startsWith('image/')) {
-            alert('Por favor selecciona un archivo de imagen válido');
-            this.value = '';
+            alert(`"${file.name}" no es una imagen válida`);
             return;
         }
         
-        // Mostrar preview (opcional)
-        console.log('Imagen seleccionada:', file.name, 'Tamaño:', (file.size / 1024 / 1024).toFixed(2) + 'MB');
+        validFiles.push(file);
+        
+        // Crear preview
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const previewDiv = document.createElement('div');
+            previewDiv.className = 'image-preview-item';
+            previewDiv.innerHTML = `
+                <img src="${event.target.result}" alt="Preview ${index + 1}">
+                <div class="image-info">
+                    <span class="filename">${file.name}</span>
+                    <span class="filesize">${(file.size / 1024 / 1024).toFixed(2)} MB</span>
+                    <button type="button" class="remove-image" onclick="removeImagePreview(this, ${index})">×</button>
+                </div>
+                <div class="image-controls">
+                    <label>
+                        <input type="checkbox" name="imagen_principal" value="${index}" ${index === 0 ? 'checked' : ''}>
+                        Imagen principal
+                    </label>
+                </div>
+            `;
+            previewContainer.appendChild(previewDiv);
+        };
+        reader.readAsDataURL(file);
+    });
+    
+    console.log(`${validFiles.length} imágenes seleccionadas`);
+});
+
+function removeImagePreview(button, index) {
+    const previewItem = button.closest('.image-preview-item');
+    previewItem.remove();
+    
+    // Actualizar el input file (esto es limitado en navegadores por seguridad)
+    const fileInput = document.getElementById('imagenes');
+    const dt = new DataTransfer();
+    const files = Array.from(fileInput.files);
+    
+    files.forEach((file, i) => {
+        if (i !== index) {
+            dt.items.add(file);
+        }
+    });
+    
+    fileInput.files = dt.files;
+}
+
+// Manejar selección de imagen principal
+document.addEventListener('change', function(e) {
+    if (e.target.name === 'imagen_principal') {
+        // Desmarcar otros checkboxes de imagen principal
+        document.querySelectorAll('input[name="imagen_principal"]').forEach(checkbox => {
+            if (checkbox !== e.target) {
+                checkbox.checked = false;
+            }
+        });
     }
 });
 </script>
+
+<style>
+.image-preview-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.image-preview-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+.image-preview-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.image-info {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    position: relative;
+}
+
+.filename {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    word-break: break-all;
+}
+
+.filesize {
+    color: #666;
+}
+
+.remove-image {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    line-height: 1;
+}
+
+.image-controls {
+    padding: 0.5rem;
+    border-top: 1px solid #ddd;
+    background: white;
+}
+
+.image-controls label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    margin: 0;
+}
+</style>
 
 <?php require_once 'partials/footer.php'; ?>
